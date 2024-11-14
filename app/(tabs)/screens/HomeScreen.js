@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { View, Button, Alert, StyleSheet } from 'react-native';
-import VoiceNoteList from '../components/VoiceNoteList';
-import { Audio } from 'expo-av';
-import { loadVoiceNotes, saveVoiceNotes } from '../utils/storage';
+import React, { useState, useEffect } from "react";
+import { View, Button, Alert, StyleSheet } from "react-native";
+import VoiceNoteList from "../../../components/VoiceNoteList";
+import { Audio } from "expo-av";
+import { loadVoiceNotes, saveVoiceNotes } from "../../../utils/storage";
 
 const HomeScreen = ({ navigation }) => {
   const [voiceNotes, setVoiceNotes] = useState([]);
@@ -38,8 +38,15 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Button title="New Voice Note" onPress={() => navigation.navigate('NewRecording')} />
-      <VoiceNoteList voiceNotes={voiceNotes} onDelete={deleteVoiceNote} onPlay={playVoiceNote} />
+      <Button
+        title="New Voice Note"
+        onPress={() => navigation.navigate("NewRecording")}
+      />
+      <VoiceNoteList
+        voiceNotes={voiceNotes}
+        onDelete={deleteVoiceNote}
+        onPlay={playVoiceNote}
+      />
     </View>
   );
 };
